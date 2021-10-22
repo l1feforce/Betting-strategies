@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Betting Strategies</string>
+    <string name="title_strategies">Strategies</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_strategy_details">Strategy details</string>
+    <string name="item_strategy_details">Details</string>
+    <string name="item_strategy_image_description">Card image</string>
+    <string name="item_strategy_favorite_button_description">Add or remove to favorite</string>
+    <string name="strategy_details_image_description">Cards image</string>
+    <string name="strategy_details_favorite_button_description">Add or delete from favorite</string>
+    <string name="strategies_empty_recycler">There is no items now</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="org.gusev.nikita.bettingstrategies.ui.strategydetails.StrategyDetailsViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/strategy_details_root_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/cardBackgroundColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/strategy_details_image"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:contentDescription="@string/strategy_details_image_description"
+                android:scaleType="centerCrop"
+                app:imageResource="@{viewModel.strategyDetails.image}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/strategy_details_title"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/strategy_details_start_margin"
+                android:layout_marginTop="@dimen/strategy_details_top_margin"
+                android:layout_marginEnd="@dimen/strategy_details_end_margin"
+                android:text="@{viewModel.strategyDetails.title}"
+                app:layout_constraintEnd_toStartOf="@+id/strategy_details_favorite_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/strategy_details_image"
+                tools:text="@tools:sample/cities" />
+
+            <ToggleButton
+                android:id="@+id/strategy_details_favorite_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/strategy_details_end_margin"
+                android:background="@drawable/button_toggle_favorite"
+                android:checked="@{viewModel.strategyDetails.isFavorite}"
+                android:contentDescription="@string/strategy_details_favorite_button_description"
+                android:onCheckedChanged="@{(view, bool) -> viewModel.onFavoriteChecked(bool, view)}"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintBottom_toBottomOf="@+id/strategy_details_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/strategy_details_title"
+                app:layout_constraintTop_toTopOf="@+id/strategy_details_title"
+                tools:checked="true" />
+
+            <TextView
+                android:id="@+id/strategy_details_description"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/strategy_details_start_margin"
+                android:layout_marginTop="@dimen/strategy_details_top_margin"
+                android:layout_marginEnd="@dimen/strategy_details_end_margin"
+                android:layout_marginBottom="@dimen/strategy_details_bot_margin"
+                android:text="@{viewModel.strategyDetails.description}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/strategy_details_title"
+                tools:text="@tools:sample/lorem/random" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
